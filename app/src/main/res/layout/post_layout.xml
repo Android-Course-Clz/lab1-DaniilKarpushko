@@ -1,56 +1,78 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="8dp">
-
-    <TextView
-        android:id="@+id/post_text"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Текст поста"
-        android:textSize="16sp"
-        android:textColor="@android:color/black" />
+    android:padding="8dp"
+    android:layout_marginBottom="10dp"
+    android:background="#A8A8A8">
 
     <ImageView
         android:id="@+id/post_image"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/ic_launcher_background" />
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/post_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Текст поста"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_image" />
+
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingTop="4dp">
+        android:paddingTop="4dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_text">
 
         <TextView
             android:id="@+id/like_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:paddingEnd="16dp"
             android:text="15 лайков"
-            android:textSize="14sp"
-            android:paddingEnd="16dp"/>
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/comment_count"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="3 комментария"
-            android:textSize="14sp"/>
-        <Button
-            android:id="@+id/btn_comment"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Comment"/>
+            android:textSize="14sp" />
+    </LinearLayout>
 
-        <Button
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/post_text">
+
+        <ImageButton
             android:id="@+id/btn_like"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Like"/>
+            android:layout_marginLeft="5dp"
+            android:contentDescription="heart"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_heart" />
 
+        <ImageButton
+            android:id="@+id/btn_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:contentDescription="comment"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_comment" />
     </LinearLayout>
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

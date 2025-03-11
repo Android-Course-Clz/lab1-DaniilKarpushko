@@ -3,6 +3,7 @@ package com.example.newmobileapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -18,8 +19,8 @@ class PostAdapter(private var posts: List<Post>) :
         val postImage: ImageView = view.findViewById(R.id.post_image)
         val likeCount: TextView = view.findViewById(R.id.like_count)
         val commentCount: TextView = view.findViewById(R.id.comment_count)
-        val likeButton: Button = view.findViewById(R.id.btn_like)
-        val commentButton: Button = view.findViewById(R.id.btn_comment)
+        val likeButton: ImageButton = view.findViewById(R.id.btn_like)
+        val commentButton: ImageButton = view.findViewById(R.id.btn_comment)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
@@ -67,7 +68,7 @@ class PostAdapter(private var posts: List<Post>) :
         }
     }
 
-    fun setPosts(newList: List<Post>) {
+    private fun setPosts(newList: List<Post>) {
         val diffCallback = PostDiffCallback(posts, newList)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         posts = newList
